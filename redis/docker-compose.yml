@@ -1,0 +1,6 @@
+redis:
+    build: ./file
+    ports:
+      - "6379:6379"
+    volumes:
+      - /opt/data/redis:/data

@@ -1,0 +1,6 @@
+nginx/sites-enabled/a.kai12.cn.conf
+nginx/sites-enabled/b.kai12.cn.conf
+nginx/sites-enabled/c.kai12.cn.conf
+nginx/sites-enabled/dev.approute.kai12.cn.conf
+nginx/sites-enabled/dev.kai12.cn.conf
+/nginx/sites-enabled/dev.laravel.com.conf

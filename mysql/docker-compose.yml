@@ -1,0 +1,8 @@
+mysql:
+    build: ./file
+    ports:
+      - "3306:3306"
+    volumes:
+      - /opt/data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
