@@ -35,3 +35,10 @@ services:
         - "6379:6379"
       volumes:
         - ~/Work/data/redis:/data
+#  swoole:
+#      build: ./swoole
+#      container_name: swoole-k12
+#      ports:
+#        - "9503:9503"
+#      volumes:
+#        - ~/Work/k12_swoole:/opt/web/k12_swoole
