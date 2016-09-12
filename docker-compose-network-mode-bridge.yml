@@ -3,31 +3,35 @@ services:
   nginx:
       build: ./nginx
       container_name: nginx
-      network_mode: "host"
+      ports:
+        - "80:80"
+      links:
+        - "php"
       volumes:
         - ~/Work:/opt/web
-        - ~/Work/log:/opt/log
-      restart: always
   php:
       build: ./php
       container_name: php
-      network_mode: "host"
+      ports:
+        - "9000:9000"
+      links:
+        - "mysql"
+        - "redis"
       volumes:
         - ~/Work:/opt/web
-      restart: always
   mysql:
       build: ./mysql/file
       container_name: mysql
-      network_mode: "host"
+      ports:
+        - "3306:3306"
       volumes:
         - ~/Work/data/mysql:/var/lib/mysql
       environment:
         MYSQL_ROOT_PASSWORD: 123456
-      restart: always
   redis:
       build: ./redis/file
       container_name: redis
-      network_mode: "host"
+      ports:
+        - "6379:6379"
       volumes:
         - ~/Work/data/redis:/data
-      restart: always
