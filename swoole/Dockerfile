@@ -38,10 +38,9 @@ RUN docker-php-ext-enable redis && docker-php-ext-enable swoole && docker-php-ex
 
 WORKDIR /opt
 
-#EXPOSE 88
+EXPOSE 88
 EXPOSE 9503
 VOLUME ["/opt"]
 
-#COPY server.php .
-#CMD php server.php
-CMD php /opt/web/k12_swoole/im_server.php
+CMD php /opt/web/k12_swoole/docker_server.php
+#CMD php /opt/web/k12_swoole/im_server.php
