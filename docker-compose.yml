@@ -3,27 +3,43 @@ services:
   nginx:
       build: ./nginx
       container_name: nginx
+#      ports:
+#        - "80:80"
       network_mode: "host"
       volumes:
-        - ~/project/:/opt/web
-        - ~/log:/opt/log
+        - ~/Work:/opt/web
+        - ~/Work/log:/opt/log
   php:
       build: ./php
       container_name: php
+#      ports:
+#        - "9000:9000"
       network_mode: "host"
       volumes:
-        - ~/project:/opt/web
+        - ~/Work:/opt/web
   mysql:
       build: ./mysql/file
       container_name: mysql
       network_mode: "host"
+#      ports:
+#        - "3306:3306"
       volumes:
-        - ~/data/mysql:/var/lib/mysql
+        - ~/Work/data/mysql:/var/lib/mysql
       environment:
         MYSQL_ROOT_PASSWORD: 123456
   redis:
       build: ./redis/file
       container_name: redis
       network_mode: "host"
+#      ports:
+#        - "6379:6379"
       volumes:
-        - ~/data/redis:/data
+        - ~/Work/data/redis:/data
+
+#  swoole:
+#      build: ./swoole
+#      container_name: swoole-k12
+#      ports:
+#        - "9503:9503"
+#      volumes:
+#        - ~/Work/k12_swoole:/opt/web/k12_swoole
