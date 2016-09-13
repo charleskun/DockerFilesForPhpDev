@@ -5,7 +5,9 @@ RUN mkdir -p ${WORK_HOME}
 ADD sources.list    /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
 	zip \
-	bzip2
+	bzip2 \
+    && docker-php-ext-install opcache \
+    && apt-get clean
 
 COPY swoole-src-1.8.10-stable.tar.gz  ${WORK_HOME}/swoole-src-1.8.10-stable.tar.gz
 COPY phpredis-3.0.0.tar.gz  ${WORK_HOME}/phpredis-3.0.0.tar.gz
