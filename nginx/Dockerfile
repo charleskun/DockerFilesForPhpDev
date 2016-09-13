@@ -1,4 +1,4 @@
-FROM nginx:1.9.0
+FROM nginx:1.10.1
 
 MAINTAINER k12-NGINX "fengkun0423@gmail.com"
 
