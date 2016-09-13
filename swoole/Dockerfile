@@ -5,7 +5,9 @@ RUN mkdir -p ${WORK_HOME}
 ADD sources.list    /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
 	zip \
-	bzip2
+	bzip2 \
+    && docker-php-ext-install opcache \
+    && apt-get clean
 
 COPY swoole-src-1.8.10-stable.tar.gz  ${WORK_HOME}/swoole-src-1.8.10-stable.tar.gz
 COPY phpredis-3.0.0.tar.gz  ${WORK_HOME}/phpredis-3.0.0.tar.gz
@@ -39,8 +41,8 @@ RUN docker-php-ext-enable redis && docker-php-ext-enable swoole && docker-php-ex
 WORKDIR /opt
 
 EXPOSE 88
+EXPOSE 9503
 VOLUME ["/opt"]
 
-COPY server.php .
-CMD php server.php
-#CMD php /opt/web/k12_swoole/webim_server.php
+CMD php /opt/web/k12_swoole/docker_server.php
+#CMD php /opt/web/k12_swoole/im_server.php

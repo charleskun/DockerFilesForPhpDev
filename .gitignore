@@ -1,3 +1,4 @@
 /nginx/sites-enabled/*.conf
 !/nginx/sites-enabled/default.conf
 
+docker-compose.yml.bak
