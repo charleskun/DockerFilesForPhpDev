@@ -64,3 +64,25 @@ echo '<?php phpinfo(); ?>' > ~/Work/phpinfo.php
 现在可以通过访问`http://127.0.0.1/phpinfo.php` 来查看phpinfo
 
 ![](png/phpinfo.png)
+
+
+## 常用命令 
+移除所有的容器和镜像（大扫除）
+用一行命令大扫除：
+```
+docker kill $(docker ps -q) ; docker rm $(docker ps -a -q) ; docker rmi $(docker images -q -a) 
+```
+
+注：shell 中的 $() 和 `` 类似，会先执行这里面的内容，上面的脚本会出现如下 docker kill "pids" ; docker kill 在 docker 中用于停止容器，docker rm 删除容器， docker rmi 删除镜像
+当没有运行的容器或者是根本没有容器的时候，这只会提示一个警告信息。当你想尝试的时候，这就是个非常好的单行命令。如果你仅仅想删除所有的容器，你可以运行如下命令：
+```
+docker kill $(docker ps -q) ; docker rm $(docker ps -a -q) 
+```
+
+查看容器logs
+```
+docker-compose logs xxx -f
+```
+
+[点此查看更多常用命令](http://dockerlux.github.io/pdf/cheat-sheet-v2.pdf?spm=5176.100239.blogcont57839.60.kfpwer&file=cheat-sheet-v2.pdf)
+
