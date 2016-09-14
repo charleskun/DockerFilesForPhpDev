@@ -6,3 +6,4 @@ services:
       network_mode: "host"
       volumes:
         - ~/project/k12_swoole:/opt/web/k12_swoole
+      restart: always
