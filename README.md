@@ -66,7 +66,7 @@ echo '<?php phpinfo(); ?>' > ~/Work/phpinfo.php
 ![](png/phpinfo.png)
 
 
-## 常用命令
+## 常用命令 
 移除所有的容器和镜像（大扫除）
 用一行命令大扫除：
 ```
@@ -84,6 +84,5 @@ docker kill $(docker ps -q) ; docker rm $(docker ps -a -q)
 docker-compose logs xxx -f
 ```
 
-
-![](png/cheat-sheet-v2.pdf)
+[点此查看更多常用命令](http://dockerlux.github.io/pdf/cheat-sheet-v2.pdf?spm=5176.100239.blogcont57839.60.kfpwer&file=cheat-sheet-v2.pdf)
 
