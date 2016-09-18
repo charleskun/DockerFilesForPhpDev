@@ -20,9 +20,6 @@ RUN apt-get update && apt-get install -y \
         && docker-php-ext-enable redis \
         && apt-get clean
 
-ADD composer.phar /usr/local/bin/composer
-RUN chmod 755 /usr/local/bin/composer
-
 ADD php.ini    /usr/local/etc/php/php.ini
 ADD php-fpm.conf    /usr/local/etc/php-fpm.conf
 
