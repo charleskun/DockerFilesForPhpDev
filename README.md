@@ -74,7 +74,8 @@ docker kill $(docker ps -q) ; docker rm $(docker ps -a -q) ; docker rmi $(docker
 ```
 
 注：shell 中的 $() 和 `` 类似，会先执行这里面的内容，上面的脚本会出现如下 docker kill "pids" ; docker kill 在 docker 中用于停止容器，docker rm 删除容器， docker rmi 删除镜像
-当没有运行的容器或者是根本没有容器的时候，这只会提示一个警告信息。当你想尝试的时候，这就是个非常好的单行命令。如果你仅仅想删除所有的容器，你可以运行如下命令：
+当没有运行的容器或者是根本没有容器的时候，这只会提示一个警告信息。当你想尝试的时候，这就是个非常好的单行命令。
+如果你仅仅想删除所有的容器，你可以运行如下命令：
 ```
 docker kill $(docker ps -q) ; docker rm $(docker ps -a -q) 
 ```
