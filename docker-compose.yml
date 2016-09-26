@@ -5,20 +5,20 @@ services:
       container_name: nginx
       network_mode: "host"
       volumes:
-        - ~/project/:/opt/web
-        - ~/log:/opt/log
+        - ~/Work:/opt/web
+        - ~/Work/log:/opt/log
   php:
       build: ./php
       container_name: php
       network_mode: "host"
       volumes:
-        - ~/project:/opt/web
+        - ~/Work:/opt/web
   mysql:
       build: ./mysql/file
       container_name: mysql
       network_mode: "host"
       volumes:
-        - ~/data/mysql:/var/lib/mysql
+        - ~/Work/data/mysql:/var/lib/mysql
       environment:
         MYSQL_ROOT_PASSWORD: 123456
   redis:
@@ -26,4 +26,5 @@ services:
       container_name: redis
       network_mode: "host"
       volumes:
-        - ~/data/redis:/data
+        - ~/Work/data/redis:/data
+
