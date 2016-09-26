@@ -5,5 +5,5 @@ services:
       container_name: swoole
       network_mode: "host"
       volumes:
-        - ~/project:/opt/web
+        - ~/Work:/opt/web
       restart: always
