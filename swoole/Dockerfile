@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install sockets \
     && apt-get clean
 
-ADD swoole-src-1.8.12-beta.tar.gz  ${WORK_HOME}
+ADD swoole-src-1.8.12-stable.tar.gz  ${WORK_HOME}
 ADD phpredis-3.0.0.tar.gz  ${WORK_HOME}
 ADD jemalloc-4.2.1.tar.bz2  ${WORK_HOME}
 ADD hiredis-0.13.3.tar.gz  ${WORK_HOME}
@@ -34,7 +34,7 @@ RUN cd ${WORK_HOME} \
 	&& ldconfig
 
 RUN cd ${WORK_HOME} \
-	&& cd swoole-src-1.8.12-beta \
+	&& cd swoole-src-1.8.12-stable \
 	&& phpize \
 	&& ./configure --enable-async-redis --enable-jemalloc \
 	&& make \
