@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
 	bzip2 \
     && docker-php-ext-install opcache \
     && docker-php-ext-install sockets \
+    && docker-php-ext-install pdo_mysql \
     && apt-get clean
 
 ADD swoole-src-1.8.12-stable.tar.gz  ${WORK_HOME}
