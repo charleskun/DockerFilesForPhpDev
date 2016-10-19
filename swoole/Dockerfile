@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
 	bzip2 \
     && docker-php-ext-install opcache \
     && docker-php-ext-install sockets \
+    && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo_mysql \
     && apt-get clean
 
@@ -48,7 +49,7 @@ RUN cd ${WORK_HOME} \
 	&& make \
 	&& make install
 
-RUN docker-php-ext-enable redis && docker-php-ext-enable swoole && docker-php-ext-install mysqli
+RUN docker-php-ext-enable redis && docker-php-ext-enable swoole
 
 WORKDIR /opt
 
