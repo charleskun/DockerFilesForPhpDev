@@ -53,8 +53,8 @@ RUN docker-php-ext-enable redis && docker-php-ext-enable swoole
 
 WORKDIR /opt
 
-EXPOSE 88
 EXPOSE 9503
 VOLUME ["/opt"]
 
-CMD php /opt/web/k12_swoole/distribute/start_swoole_server.php start -d
+CMD php /opt/web/k12_swoole/distribute/start_swoole_server.php stop
+CMD php /opt/web/k12_swoole/distribute/start_swoole_server.php start
