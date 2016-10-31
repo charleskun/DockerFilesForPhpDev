@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql \
     && apt-get clean
 
-ADD swoole-src-1.8.12-stable.tar.gz  ${WORK_HOME}
+ADD swoole-src-1.8.13-stable.tar.gz  ${WORK_HOME}
 ADD phpredis-3.0.0.tar.gz  ${WORK_HOME}
 ADD jemalloc-4.2.1.tar.bz2  ${WORK_HOME}
 ADD hiredis-0.13.3.tar.gz  ${WORK_HOME}
@@ -36,7 +36,7 @@ RUN cd ${WORK_HOME} \
 	&& ldconfig
 
 RUN cd ${WORK_HOME} \
-	&& cd swoole-src-1.8.12-stable \
+	&& cd swoole-src-1.8.13-stable \
 	&& phpize \
 	&& ./configure --enable-async-redis --enable-jemalloc \
 	&& make \
@@ -57,5 +57,4 @@ EXPOSE 88
 EXPOSE 9503
 VOLUME ["/opt"]
 
-CMD php /opt/web/k12_swoole/docker_server.php
-#CMD php /opt/web/k12_swoole/im_server.php
+CMD php /opt/web/k12_swoole/distribute/start_swoole_server.php start -d
