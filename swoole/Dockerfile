@@ -1,6 +1,7 @@
 FROM php:7.0-cli
 MAINTAINER szb345@gmail.com
 ENV WORK_HOME /home/swoole
+
 RUN mkdir -p ${WORK_HOME}
 ADD sources.list    /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
@@ -56,5 +57,9 @@ WORKDIR /opt
 EXPOSE 9503
 VOLUME ["/opt"]
 
-CMD php /opt/web/k12_swoole/distribute/start_swoole_server.php stop
-CMD php /opt/web/k12_swoole/distribute/start_swoole_server.php start
+ADD build.sh ${WORK_HOME}
+CMD ["sh","/home/swoole/build.sh"]
+
+
+
+
