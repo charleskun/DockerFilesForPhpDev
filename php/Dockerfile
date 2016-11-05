@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
         libmcrypt-dev \
         libjpeg62-turbo-dev \
         libpng12-dev \
+        unzip \
         && docker-php-ext-install -j$(nproc) iconv mcrypt \
         && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
         && docker-php-ext-install -j$(nproc) gd \
@@ -22,6 +23,12 @@ RUN apt-get update && apt-get install -y \
 
 ADD php.ini    /usr/local/etc/php/php.ini
 ADD php-fpm.conf    /usr/local/etc/php-fpm.conf
+ADD cphalcon-3.0.1.tar.gz /home/
+
+
+RUN cd /home/cphalcon-3.0.1/build && ./install
+
+RUN docker-php-ext-enable phalcon
 
 WORKDIR /opt
 
