@@ -7,12 +7,16 @@ services:
       volumes:
         - ~/Work:/opt/web
         - ~/Work/log:/opt/log
+      restart: always
   php:
       build: ./php
       container_name: php
       network_mode: "host"
       volumes:
         - ~/Work:/opt/web
+      restart: always
+      extra_hosts:
+        - "api.im.com:127.0.0.1"
   mysql:
       build: ./mysql/file
       container_name: mysql
@@ -21,10 +25,12 @@ services:
         - ~/Work/data/mysql:/var/lib/mysql
       environment:
         MYSQL_ROOT_PASSWORD: 123456
+      restart: always
   redis:
       build: ./redis/file
       container_name: redis
       network_mode: "host"
       volumes:
         - ~/Work/data/redis:/data
+      restart: always
 
