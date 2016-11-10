@@ -15,8 +15,6 @@ services:
       volumes:
         - ~/Work:/opt/web
       restart: always
-      extra_hosts:
-        - "api.im.com:127.0.0.1"
   mysql:
       build: ./mysql/file
       container_name: mysql

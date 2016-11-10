@@ -19,17 +19,12 @@ RUN apt-get update && apt-get install -y \
         && docker-php-ext-install opcache \
         #&& docker-php-ext-install zip \
         && pecl install redis \
-        && docker-php-ext-enable redis \
-        && apt-get clean
-
+        && docker-php-ext-enable redis
 ADD php.ini    /usr/local/etc/php/php.ini
 ADD php-fpm.conf    /usr/local/etc/php-fpm.conf
-ADD cphalcon-3.0.1.tar.gz /home/
 
 
-RUN cd /home/cphalcon-3.0.1/build && ./install
 
-RUN docker-php-ext-enable phalcon
 
 # 安装 Xdebug
 RUN curl -fsSL 'https://xdebug.org/files/xdebug-2.4.0.tgz' -o xdebug.tar.gz \
@@ -49,7 +44,6 @@ RUN curl -fsSL 'https://xdebug.org/files/xdebug-2.4.0.tgz' -o xdebug.tar.gz \
 RUN echo "xdebug.enable=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.remote_host=192.168.99.100" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-
 
 
 WORKDIR /opt
